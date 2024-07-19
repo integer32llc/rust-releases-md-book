@@ -1,5 +1,6 @@
 use std::{
-    collections::HashMap,
+    collections::BTreeMap,
+    fmt,
     fs::{self, File, OpenOptions},
     io::{BufRead, BufReader, Write},
     path::Path,
@@ -26,8 +27,7 @@ fn main() {
         })
         .collect();
 
-    let mut releases: HashMap<String, Vec<Release>> =
-        HashMap::with_capacity(dividing_line_indices.len());
+    let mut releases: BTreeMap<MajorMinor, Vec<Release>> = BTreeMap::new();
 
     for window in dividing_line_indices.windows(2) {
         let current_dividing_line = window[0];
@@ -38,7 +38,7 @@ fn main() {
 
         let release = rust_version(&destination, &lines[start_index..end_index]);
         releases
-            .entry(release.key())
+            .entry(release.major_minor)
             .and_modify(|list| list.push(release.clone()))
             .or_insert(vec![release]);
     }
@@ -47,18 +47,26 @@ fn main() {
     let last_start_index = dividing_line_indices[dividing_line_indices.len() - 1] - 1;
     let release = rust_version(&destination, &lines[last_start_index..]);
     releases
-        .entry(release.key())
+        .entry(release.major_minor)
         .and_modify(|list| list.push(release.clone()))
         .or_insert_with(|| vec![release]);
 
     let summary: Vec<_> = releases
         .iter()
+        .rev()
         .map(|(key, values)| {
             if values.len() == 1 {
-                format!("- [{key}.{}]({key}.md)", values[0].patch)
+                format!(
+                    "- [{key}.{} ({})]({key}.md)",
+                    values[0].patch, values[0].date
+                )
             } else {
-                let patches: Vec<_> = values.iter().map(|v| v.patch.as_str()).collect();
-                format!("- [{key}.{{{}}}]({key}.md)", patches.join(", "))
+                let patches: Vec<_> = values.iter().map(|v| v.patch.to_string()).collect();
+                format!(
+                    "- [{key}.{{{}}} ({})]({key}.md)",
+                    patches.join(", "),
+                    values.last().unwrap().date
+                )
             }
         })
         .collect();
@@ -74,7 +82,7 @@ fn rust_version<P: AsRef<Path>>(destination: P, markdown: &[String]) -> Release 
         .parse()
         .expect("should have been able to parse a Release");
 
-    let filename = format!("{}.{}.md", release.major, release.minor);
+    let filename = format!("{}.md", release.major_minor);
     let mut file = OpenOptions::new()
         .create(true)
         .append(true)
@@ -89,18 +97,24 @@ fn rust_version<P: AsRef<Path>>(destination: P, markdown: &[String]) -> Release 
     release
 }
 
-#[derive(Debug, Clone)]
-struct Release {
-    major: String,
-    minor: String,
-    patch: String,
-    date: String,
+#[derive(Debug, Clone, Copy, Ord, PartialOrd, Eq, PartialEq)]
+struct MajorMinor {
+    major: u32,
+    minor: u32,
 }
 
-impl Release {
-    fn key(&self) -> String {
-        format!("{}.{}", self.major, self.minor)
+impl fmt::Display for MajorMinor {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}.{}", self.major, self.minor)
     }
+}
+
+#[derive(Debug, Clone)]
+struct Release {
+    major_minor: MajorMinor,
+    patch: u32,
+    pre: Option<String>,
+    date: String,
 }
 
 impl FromStr for Release {
@@ -114,17 +128,35 @@ impl FromStr for Release {
             .next()
             .expect("should have had a number after 'version '");
         let mut number_parts = number.split(".");
-        let major = number_parts
+        let major: u32 = number_parts
             .next()
             .ok_or_else(|| String::from("should have had a major version"))?
-            .to_string();
-        let minor = number_parts
+            .parse()
+            .map_err(|e| format!("major version should have been a number: {e}"))?;
+        let minor: u32 = number_parts
             .next()
             .ok_or_else(|| String::from("should have had a minor version"))?
-            .to_string();
-        let patch = number_parts.next().unwrap_or("0").to_string();
+            .parse()
+            .map_err(|e| format!("minor version should have been a number: {e}"))?;
 
-        // TODO: handle prerelease
+        let (patch, pre) = match number_parts.next() {
+            Some(s) => {
+                let mut patch_pre_parts = s.split("-");
+                let patch = patch_pre_parts
+                    .next()
+                    .map(|p| {
+                        p.parse().map_err(|e| {
+                            format!("patch version should have been a number: {e}: {p}")
+                        })
+                    })
+                    .transpose()?
+                    .unwrap_or(0);
+                let pre = patch_pre_parts.next().map(ToString::to_string);
+
+                (patch, pre)
+            }
+            None => (0, None),
+        };
 
         let date = parts
             .next()
@@ -133,9 +165,9 @@ impl FromStr for Release {
             .replace(")", "");
 
         Ok(Self {
-            major,
-            minor,
+            major_minor: MajorMinor { major, minor },
             patch,
+            pre,
             date,
         })
     }
