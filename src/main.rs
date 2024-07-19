@@ -52,22 +52,12 @@ fn main() {
         .or_insert_with(|| vec![release]);
 
     let summary: Vec<_> = releases
-        .iter()
+        .keys()
         .rev()
-        .map(|(key, values)| {
-            if values.len() == 1 {
-                format!(
-                    "- [{key}.{} ({})]({key}.md)",
-                    values[0].patch, values[0].date
-                )
-            } else {
-                let patches: Vec<_> = values.iter().map(|v| v.patch.to_string()).collect();
-                format!(
-                    "- [{key}.{{{}}} ({})]({key}.md)",
-                    patches.join(", "),
-                    values.last().unwrap().date
-                )
-            }
+        .map(|key| {
+            format!(
+                "- [{key}]({key}.md)"
+            )
         })
         .collect();
 
@@ -109,6 +99,7 @@ impl fmt::Display for MajorMinor {
     }
 }
 
+#[allow(dead_code)]
 #[derive(Debug, Clone)]
 struct Release {
     major_minor: MajorMinor,
