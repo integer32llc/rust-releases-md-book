@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1.16</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1.80.html">1.80</a></li><li class="chapter-item expanded affix "><a href="1.79.html">1.79</a></li><li class="chapter-item expanded affix "><a href="1.78.html">1.78</a></li><li class="chapter-item expanded affix "><a href="1.77.html">1.77</a></li><li class="chapter-item expanded affix "><a href="1.76.html">1.76</a></li><li class="chapter-item expanded affix "><a href="1.75.html">1.75</a></li><li class="chapter-item expanded affix "><a href="1.74.html">1.74</a></li><li class="chapter-item expanded affix "><a href="1.73.html">1.73</a></li><li class="chapter-item expanded affix "><a href="1.72.html">1.72</a></li><li class="chapter-item expanded affix "><a href="1.71.html">1.71</a></li><li class="chapter-item expanded affix "><a href="1.70.html">1.70</a></li><li class="chapter-item expanded affix "><a href="1.69.html">1.69</a></li><li class="chapter-item expanded affix "><a href="1.68.html">1.68</a></li><li class="chapter-item expanded affix "><a href="1.67.html">1.67</a></li><li class="chapter-item expanded affix "><a href="1.66.html">1.66</a></li><li class="chapter-item expanded affix "><a href="1.65.html">1.65</a></li><li class="chapter-item expanded affix "><a href="1.64.html">1.64</a></li><li class="chapter-item expanded affix "><a href="1.63.html">1.63</a></li><li class="chapter-item expanded affix "><a href="1.62.html">1.62</a></li><li class="chapter-item expanded affix "><a href="1.61.html">1.61</a></li><li class="chapter-item expanded affix "><a href="1.60.html">1.60</a></li><li class="chapter-item expanded affix "><a href="1.59.html">1.59</a></li><li class="chapter-item expanded affix "><a href="1.58.html">1.58</a></li><li class="chapter-item expanded affix "><a href="1.57.html">1.57</a></li><li class="chapter-item expanded affix "><a href="1.56.html">1.56</a></li><li class="chapter-item expanded affix "><a href="1.55.html">1.55</a></li><li class="chapter-item expanded affix "><a href="1.54.html">1.54</a></li><li class="chapter-item expanded affix "><a href="1.53.html">1.53</a></li><li class="chapter-item expanded affix "><a href="1.52.html">1.52</a></li><li class="chapter-item expanded affix "><a href="1.51.html">1.51</a></li><li class="chapter-item expanded affix "><a href="1.50.html">1.50</a></li><li class="chapter-item expanded affix "><a href="1.49.html">1.49</a></li><li class="chapter-item expanded affix "><a href="1.48.html">1.48</a></li><li class="chapter-item expanded affix "><a href="1.47.html">1.47</a></li><li class="chapter-item expanded affix "><a href="1.46.html">1.46</a></li><li class="chapter-item expanded affix "><a href="1.45.html">1.45</a></li><li class="chapter-item expanded affix "><a href="1.44.html">1.44</a></li><li class="chapter-item expanded affix "><a href="1.43.html">1.43</a></li><li class="chapter-item expanded affix "><a href="1.42.html">1.42</a></li><li class="chapter-item expanded affix "><a href="1.41.html">1.41</a></li><li class="chapter-item expanded affix "><a href="1.40.html">1.40</a></li><li class="chapter-item expanded affix "><a href="1.39.html">1.39</a></li><li class="chapter-item expanded affix "><a href="1.38.html">1.38</a></li><li class="chapter-item expanded affix "><a href="1.37.html">1.37</a></li><li class="chapter-item expanded affix "><a href="1.36.html">1.36</a></li><li class="chapter-item expanded affix "><a href="1.35.html">1.35</a></li><li class="chapter-item expanded affix "><a href="1.34.html">1.34</a></li><li class="chapter-item expanded affix "><a href="1.33.html">1.33</a></li><li class="chapter-item expanded affix "><a href="1.32.html">1.32</a></li><li class="chapter-item expanded affix "><a href="1.31.html">1.31</a></li><li class="chapter-item expanded affix "><a href="1.30.html">1.30</a></li><li class="chapter-item expanded affix "><a href="1.29.html">1.29</a></li><li class="chapter-item expanded affix "><a href="1.28.html">1.28</a></li><li class="chapter-item expanded affix "><a href="1.27.html">1.27</a></li><li class="chapter-item expanded affix "><a href="1.26.html">1.26</a></li><li class="chapter-item expanded affix "><a href="1.25.html">1.25</a></li><li class="chapter-item expanded affix "><a href="1.24.html">1.24</a></li><li class="chapter-item expanded affix "><a href="1.23.html">1.23</a></li><li class="chapter-item expanded affix "><a href="1.22.html">1.22</a></li><li class="chapter-item expanded affix "><a href="1.21.html">1.21</a></li><li class="chapter-item expanded affix "><a href="1.20.html">1.20</a></li><li class="chapter-item expanded affix "><a href="1.19.html">1.19</a></li><li class="chapter-item expanded affix "><a href="1.18.html">1.18</a></li><li class="chapter-item expanded affix "><a href="1.17.html">1.17</a></li><li class="chapter-item expanded affix "><a href="1.16.html" class="active">1.16</a></li><li class="chapter-item expanded affix "><a href="1.15.html">1.15</a></li><li class="chapter-item expanded affix "><a href="1.14.html">1.14</a></li><li class="chapter-item expanded affix "><a href="1.13.html">1.13</a></li><li class="chapter-item expanded affix "><a href="1.12.html">1.12</a></li><li class="chapter-item expanded affix "><a href="1.11.html">1.11</a></li><li class="chapter-item expanded affix "><a href="1.10.html">1.10</a></li><li class="chapter-item expanded affix "><a href="1.9.html">1.9</a></li><li class="chapter-item expanded affix "><a href="1.8.html">1.8</a></li><li class="chapter-item expanded affix "><a href="1.7.html">1.7</a></li><li class="chapter-item expanded affix "><a href="1.6.html">1.6</a></li><li class="chapter-item expanded affix "><a href="1.5.html">1.5</a></li><li class="chapter-item expanded affix "><a href="1.4.html">1.4</a></li><li class="chapter-item expanded affix "><a href="1.3.html">1.3</a></li><li class="chapter-item expanded affix "><a href="1.2.html">1.2</a></li><li class="chapter-item expanded affix "><a href="1.1.html">1.1</a></li><li class="chapter-item expanded affix "><a href="1.0.html">1.0</a></li><li class="chapter-item expanded affix "><a href="0.12.html">0.12</a></li><li class="chapter-item expanded affix "><a href="0.11.html">0.11</a></li><li class="chapter-item expanded affix "><a href="0.10.html">0.10</a></li><li class="chapter-item expanded affix "><a href="0.9.html">0.9</a></li><li class="chapter-item expanded affix "><a href="0.8.html">0.8</a></li><li class="chapter-item expanded affix "><a href="0.7.html">0.7</a></li><li class="chapter-item expanded affix "><a href="0.6.html">0.6</a></li><li class="chapter-item expanded affix "><a href="0.5.html">0.5</a></li><li class="chapter-item expanded affix "><a href="0.4.html">0.4</a></li><li class="chapter-item expanded affix "><a href="0.3.html">0.3</a></li><li class="chapter-item expanded affix "><a href="0.2.html">0.2</a></li><li class="chapter-item expanded affix "><a href="0.1.html">0.1</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="version-1160-2017-03-16"><a class="header" href="#version-1160-2017-03-16">Version 1.16.0 (2017-03-16)</a></h1>
+<h2 id="language"><a class="header" href="#language">Language</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/38051">The compiler's <code>dead_code</code> lint now accounts for type aliases</a>.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38069">Uninhabitable enums (those without any variants) no longer permit wildcard
+match patterns</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38313">Clean up semantics of <code>self</code> in an import list</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38920"><code>Self</code> may appear in <code>impl</code> headers</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/39282"><code>Self</code> may appear in struct expressions</a></li>
+</ul>
+<h2 id="compiler"><a class="header" href="#compiler">Compiler</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/38571"><code>rustc</code> now supports <code>--emit=metadata</code>, which causes rustc to emit
+a <code>.rmeta</code> file containing only crate metadata</a>. This can be
+used by tools like the Rust Language Service to perform
+metadata-only builds.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38927">Levenshtein based typo suggestions now work in most places, while
+previously they worked only for fields and sometimes for local
+variables</a>. Together with the overhaul of "no
+resolution"/"unexpected resolution" errors (#<a href="https://github.com/rust-lang/rust/pull/38154">38154</a>) they result in
+large and systematic improvement in resolution diagnostics.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38670">Fix <code>transmute::&lt;T, U&gt;</code> where <code>T</code> requires a bigger alignment than
+<code>U</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38798">rustc: use -Xlinker when specifying an rpath with ',' in it</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/37057"><code>rustc</code> no longer attempts to provide "consider using an explicit
+lifetime" suggestions</a>. They were inaccurate.</li>
+</ul>
+<h2 id="stabilized-apis"><a class="header" href="#stabilized-apis">Stabilized APIs</a></h2>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/collections/vec_deque/struct.VecDeque.html#method.truncate"><code>VecDeque::truncate</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/collections/vec_deque/struct.VecDeque.html#method.resize"><code>VecDeque::resize</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/string/struct.String.html#method.insert_str"><code>String::insert_str</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/time/struct.Duration.html#method.checked_add"><code>Duration::checked_add</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/time/struct.Duration.html#method.checked_sub"><code>Duration::checked_sub</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/time/struct.Duration.html#method.checked_div"><code>Duration::checked_div</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/time/struct.Duration.html#method.checked_mul"><code>Duration::checked_mul</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.str.html#method.replacen"><code>str::replacen</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.str.html#method.repeat"><code>str::repeat</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/net/enum.SocketAddr.html#method.is_ipv4"><code>SocketAddr::is_ipv4</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/net/enum.SocketAddr.html#method.is_ipv6"><code>SocketAddr::is_ipv6</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/net/enum.IpAddr.html#method.is_ipv4"><code>IpAddr::is_ipv4</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/net/enum.IpAddr.html#method.is_ipv6"><code>IpAddr::is_ipv6</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/vec/struct.Vec.html#method.dedup_by"><code>Vec::dedup_by</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/vec/struct.Vec.html#method.dedup_by_key"><code>Vec::dedup_by_key</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_or_default"><code>Result::unwrap_or_default</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.pointer.html#method.wrapping_offset"><code>&lt;*const T&gt;::wrapping_offset</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.pointer.html#method.wrapping_offset-1"><code>&lt;*mut T&gt;::wrapping_offset</code></a></li>
+<li><code>CommandExt::creation_flags</code></li>
+<li><a href="https://doc.rust-lang.org/std/fs/struct.File.html#method.set_permissions"><code>File::set_permissions</code></a></li>
+<li><a href="https://doc.rust-lang.org/std/string/struct.String.html#method.split_off"><code>String::split_off</code></a></li>
+</ul>
+<h2 id="libraries"><a class="header" href="#libraries">Libraries</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/37761"><code>[T]::binary_search</code> and <code>[T]::binary_search_by_key</code> now take
+their argument by <code>Borrow</code> parameter</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38006">All public types in std implement <code>Debug</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38327"><code>IpAddr</code> implements <code>From&lt;Ipv4Addr&gt;</code> and <code>From&lt;Ipv6Addr&gt;</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38131"><code>Ipv6Addr</code> implements <code>From&lt;[u16; 8]&gt;</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38274">Ctrl-Z returns from <code>Stdin.read()</code> when reading from the console on
+Windows</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38062">std: Fix partial writes in <code>LineWriter</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38622">std: Clamp max read/write sizes on Unix</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38066">Use more specific panic message for <code>&amp;str</code> slicing errors</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38304"><code>TcpListener::set_only_v6</code> is deprecated</a>. This
+functionality cannot be achieved in std currently.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38469"><code>writeln!</code>, like <code>println!</code>, now accepts a form with no string
+or formatting arguments, to just print a newline</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38580">Implement <code>iter::Sum</code> and <code>iter::Product</code> for <code>Result</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38781">Reduce the size of static data in <code>std_unicode::tables</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38909"><code>char::EscapeDebug</code>, <code>EscapeDefault</code>, <code>EscapeUnicode</code>,
+<code>CaseMappingIter</code>, <code>ToLowercase</code>, <code>ToUppercase</code>, implement
+<code>Display</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38712"><code>Duration</code> implements <code>Sum</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/39048"><code>String</code> implements <code>ToSocketAddrs</code></a></li>
+</ul>
+<h2 id="cargo"><a class="header" href="#cargo">Cargo</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/cargo/pull/3296">The <code>cargo check</code> command does a type check of a project without
+building it</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3546">crates.io will display CI badges from Travis and AppVeyor, if
+specified in Cargo.toml</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3301">crates.io will display categories listed in Cargo.toml</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3534">Compilation profiles accept integer values for <code>debug</code>, in addition
+to <code>true</code> and <code>false</code>. These are passed to <code>rustc</code> as the value to
+<code>-C debuginfo</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3604">Implement <code>cargo --version --verbose</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3557">All builds now output 'dep-info' build dependencies compatible with
+make and ninja</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3511">Build all workspace members with <code>build --all</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3515">Document all workspace members with <code>doc --all</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/3443">Path deps outside workspace are not members</a></li>
+</ul>
+<h2 id="misc"><a class="header" href="#misc">Misc</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/38589"><code>rustdoc</code> has a <code>--sysroot</code> argument that, like <code>rustc</code>, specifies
+the path to the Rust implementation</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38413">The <code>armv7-linux-androideabi</code> target no longer enables NEON
+extensions, per Google's ABI guide</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38401">The stock standard library can be compiled for Redox OS</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38726">Rust has initial SPARC support</a>. Tier 3. No builds
+available.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38559">Rust has experimental support for Nvidia PTX</a>. Tier 3. No
+builds available.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/39379">Fix backtraces on i686-pc-windows-gnu by disabling FPO</a></li>
+</ul>
+<h2 id="compatibility-notes"><a class="header" href="#compatibility-notes">Compatibility Notes</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/38069">Uninhabitable enums (those without any variants) no longer permit wildcard
+match patterns</a></li>
+<li>In this release, references to uninhabited types can not be
+pattern-matched. This was accidentally allowed in 1.15.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38051">The compiler's <code>dead_code</code> lint now accounts for type aliases</a>.</li>
+<li><a href="https://github.com/rust-lang/rust/pull/38274">Ctrl-Z returns from <code>Stdin.read()</code> when reading from the console on
+Windows</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/38313">Clean up semantics of <code>self</code> in an import list</a></li>
+<li>Reimplemented lifetime elision. This change was almost entirely compatible
+with existing code, but it did close a number of small bugs and loopholes,
+as well as being more accepting in some other <a href="https://github.com/rust-lang/rust/issues/41105">cases</a>.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="1.17.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="1.15.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="1.17.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="1.15.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>0.9</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="1.80.html">1.80</a></li><li class="chapter-item expanded affix "><a href="1.79.html">1.79</a></li><li class="chapter-item expanded affix "><a href="1.78.html">1.78</a></li><li class="chapter-item expanded affix "><a href="1.77.html">1.77</a></li><li class="chapter-item expanded affix "><a href="1.76.html">1.76</a></li><li class="chapter-item expanded affix "><a href="1.75.html">1.75</a></li><li class="chapter-item expanded affix "><a href="1.74.html">1.74</a></li><li class="chapter-item expanded affix "><a href="1.73.html">1.73</a></li><li class="chapter-item expanded affix "><a href="1.72.html">1.72</a></li><li class="chapter-item expanded affix "><a href="1.71.html">1.71</a></li><li class="chapter-item expanded affix "><a href="1.70.html">1.70</a></li><li class="chapter-item expanded affix "><a href="1.69.html">1.69</a></li><li class="chapter-item expanded affix "><a href="1.68.html">1.68</a></li><li class="chapter-item expanded affix "><a href="1.67.html">1.67</a></li><li class="chapter-item expanded affix "><a href="1.66.html">1.66</a></li><li class="chapter-item expanded affix "><a href="1.65.html">1.65</a></li><li class="chapter-item expanded affix "><a href="1.64.html">1.64</a></li><li class="chapter-item expanded affix "><a href="1.63.html">1.63</a></li><li class="chapter-item expanded affix "><a href="1.62.html">1.62</a></li><li class="chapter-item expanded affix "><a href="1.61.html">1.61</a></li><li class="chapter-item expanded affix "><a href="1.60.html">1.60</a></li><li class="chapter-item expanded affix "><a href="1.59.html">1.59</a></li><li class="chapter-item expanded affix "><a href="1.58.html">1.58</a></li><li class="chapter-item expanded affix "><a href="1.57.html">1.57</a></li><li class="chapter-item expanded affix "><a href="1.56.html">1.56</a></li><li class="chapter-item expanded affix "><a href="1.55.html">1.55</a></li><li class="chapter-item expanded affix "><a href="1.54.html">1.54</a></li><li class="chapter-item expanded affix "><a href="1.53.html">1.53</a></li><li class="chapter-item expanded affix "><a href="1.52.html">1.52</a></li><li class="chapter-item expanded affix "><a href="1.51.html">1.51</a></li><li class="chapter-item expanded affix "><a href="1.50.html">1.50</a></li><li class="chapter-item expanded affix "><a href="1.49.html">1.49</a></li><li class="chapter-item expanded affix "><a href="1.48.html">1.48</a></li><li class="chapter-item expanded affix "><a href="1.47.html">1.47</a></li><li class="chapter-item expanded affix "><a href="1.46.html">1.46</a></li><li class="chapter-item expanded affix "><a href="1.45.html">1.45</a></li><li class="chapter-item expanded affix "><a href="1.44.html">1.44</a></li><li class="chapter-item expanded affix "><a href="1.43.html">1.43</a></li><li class="chapter-item expanded affix "><a href="1.42.html">1.42</a></li><li class="chapter-item expanded affix "><a href="1.41.html">1.41</a></li><li class="chapter-item expanded affix "><a href="1.40.html">1.40</a></li><li class="chapter-item expanded affix "><a href="1.39.html">1.39</a></li><li class="chapter-item expanded affix "><a href="1.38.html">1.38</a></li><li class="chapter-item expanded affix "><a href="1.37.html">1.37</a></li><li class="chapter-item expanded affix "><a href="1.36.html">1.36</a></li><li class="chapter-item expanded affix "><a href="1.35.html">1.35</a></li><li class="chapter-item expanded affix "><a href="1.34.html">1.34</a></li><li class="chapter-item expanded affix "><a href="1.33.html">1.33</a></li><li class="chapter-item expanded affix "><a href="1.32.html">1.32</a></li><li class="chapter-item expanded affix "><a href="1.31.html">1.31</a></li><li class="chapter-item expanded affix "><a href="1.30.html">1.30</a></li><li class="chapter-item expanded affix "><a href="1.29.html">1.29</a></li><li class="chapter-item expanded affix "><a href="1.28.html">1.28</a></li><li class="chapter-item expanded affix "><a href="1.27.html">1.27</a></li><li class="chapter-item expanded affix "><a href="1.26.html">1.26</a></li><li class="chapter-item expanded affix "><a href="1.25.html">1.25</a></li><li class="chapter-item expanded affix "><a href="1.24.html">1.24</a></li><li class="chapter-item expanded affix "><a href="1.23.html">1.23</a></li><li class="chapter-item expanded affix "><a href="1.22.html">1.22</a></li><li class="chapter-item expanded affix "><a href="1.21.html">1.21</a></li><li class="chapter-item expanded affix "><a href="1.20.html">1.20</a></li><li class="chapter-item expanded affix "><a href="1.19.html">1.19</a></li><li class="chapter-item expanded affix "><a href="1.18.html">1.18</a></li><li class="chapter-item expanded affix "><a href="1.17.html">1.17</a></li><li class="chapter-item expanded affix "><a href="1.16.html">1.16</a></li><li class="chapter-item expanded affix "><a href="1.15.html">1.15</a></li><li class="chapter-item expanded affix "><a href="1.14.html">1.14</a></li><li class="chapter-item expanded affix "><a href="1.13.html">1.13</a></li><li class="chapter-item expanded affix "><a href="1.12.html">1.12</a></li><li class="chapter-item expanded affix "><a href="1.11.html">1.11</a></li><li class="chapter-item expanded affix "><a href="1.10.html">1.10</a></li><li class="chapter-item expanded affix "><a href="1.9.html">1.9</a></li><li class="chapter-item expanded affix "><a href="1.8.html">1.8</a></li><li class="chapter-item expanded affix "><a href="1.7.html">1.7</a></li><li class="chapter-item expanded affix "><a href="1.6.html">1.6</a></li><li class="chapter-item expanded affix "><a href="1.5.html">1.5</a></li><li class="chapter-item expanded affix "><a href="1.4.html">1.4</a></li><li class="chapter-item expanded affix "><a href="1.3.html">1.3</a></li><li class="chapter-item expanded affix "><a href="1.2.html">1.2</a></li><li class="chapter-item expanded affix "><a href="1.1.html">1.1</a></li><li class="chapter-item expanded affix "><a href="1.0.html">1.0</a></li><li class="chapter-item expanded affix "><a href="0.12.html">0.12</a></li><li class="chapter-item expanded affix "><a href="0.11.html">0.11</a></li><li class="chapter-item expanded affix "><a href="0.10.html">0.10</a></li><li class="chapter-item expanded affix "><a href="0.9.html" class="active">0.9</a></li><li class="chapter-item expanded affix "><a href="0.8.html">0.8</a></li><li class="chapter-item expanded affix "><a href="0.7.html">0.7</a></li><li class="chapter-item expanded affix "><a href="0.6.html">0.6</a></li><li class="chapter-item expanded affix "><a href="0.5.html">0.5</a></li><li class="chapter-item expanded affix "><a href="0.4.html">0.4</a></li><li class="chapter-item expanded affix "><a href="0.3.html">0.3</a></li><li class="chapter-item expanded affix "><a href="0.2.html">0.2</a></li><li class="chapter-item expanded affix "><a href="0.1.html">0.1</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="version-09-2014-01-09"><a class="header" href="#version-09-2014-01-09">Version 0.9 (2014-01-09)</a></h1>
+<ul>
+<li>
+<p>~1800 changes, numerous bugfixes</p>
+</li>
+<li>
+<p>Language</p>
+<ul>
+<li>The <code>float</code> type has been removed. Use <code>f32</code> or <code>f64</code> instead.</li>
+<li>A new facility for enabling experimental features (feature gating) has
+been added, using the crate-level <code>#[feature(foo)]</code> attribute.</li>
+<li>Managed boxes (@) are now behind a feature gate
+(<code>#[feature(managed_boxes)]</code>) in preparation for future removal. Use the
+standard library's <code>Gc</code> or <code>Rc</code> types instead.</li>
+<li><code>@mut</code> has been removed. Use <code>std::cell::{Cell, RefCell}</code> instead.</li>
+<li>Jumping back to the top of a loop is now done with <code>continue</code> instead of
+<code>loop</code>.</li>
+<li>Strings can no longer be mutated through index assignment.</li>
+<li>Raw strings can be created via the basic <code>r"foo"</code> syntax or with matched
+hash delimiters, as in <code>r###"foo"###</code>.</li>
+<li><code>~fn</code> is now written <code>proc (args) -&gt; retval { ... }</code> and may only be
+called once.</li>
+<li>The <code>&amp;fn</code> type is now written <code>|args| -&gt; ret</code> to match the literal form.</li>
+<li><code>@fn</code>s have been removed.</li>
+<li><code>do</code> only works with procs in order to make it obvious what the cost
+of <code>do</code> is.</li>
+<li>Single-element tuple-like structs can no longer be dereferenced to
+obtain the inner value. A more comprehensive solution for overloading
+the dereference operator will be provided in the future.</li>
+<li>The <code>#[link(...)]</code> attribute has been replaced with
+<code>#[crate_id = "name#vers"]</code>.</li>
+<li>Empty <code>impl</code>s must be terminated with empty braces and may not be
+terminated with a semicolon.</li>
+<li>Keywords are no longer allowed as lifetime names; the <code>self</code> lifetime
+no longer has any special meaning.</li>
+<li>The old <code>fmt!</code> string formatting macro has been removed.</li>
+<li><code>printf!</code> and <code>printfln!</code> (old-style formatting) removed in favor of
+<code>print!</code> and <code>println!</code>.</li>
+<li><code>mut</code> works in patterns now, as in <code>let (mut x, y) = (1, 2);</code>.</li>
+<li>The <code>extern mod foo (name = "bar")</code> syntax has been removed. Use
+<code>extern mod foo = "bar"</code> instead.</li>
+<li>New reserved keywords: <code>alignof</code>, <code>offsetof</code>, <code>sizeof</code>.</li>
+<li>Macros can have attributes.</li>
+<li>Macros can expand to items with attributes.</li>
+<li>Macros can expand to multiple items.</li>
+<li>The <code>asm!</code> macro is feature-gated (<code>#[feature(asm)]</code>).</li>
+<li>Comments may be nested.</li>
+<li>Values automatically coerce to trait objects they implement, without
+an explicit <code>as</code>.</li>
+<li>Enum discriminants are no longer an entire word but as small as needed to
+contain all the variants. The <code>repr</code> attribute can be used to override
+the discriminant size, as in <code>#[repr(int)]</code> for integer-sized, and
+<code>#[repr(C)]</code> to match C enums.</li>
+<li>Non-string literals are not allowed in attributes (they never worked).</li>
+<li>The FFI now supports variadic functions.</li>
+<li>Octal numeric literals, as in <code>0o7777</code>.</li>
+<li>The <code>concat!</code> syntax extension performs compile-time string concatenation.</li>
+<li>The <code>#[fixed_stack_segment]</code> and <code>#[rust_stack]</code> attributes have been
+removed as Rust no longer uses segmented stacks.</li>
+<li>Non-ascii identifiers are feature-gated (<code>#[feature(non_ascii_idents)]</code>).</li>
+<li>Ignoring all fields of an enum variant or tuple-struct is done with <code>..</code>,
+not <code>*</code>; ignoring remaining fields of a struct is also done with <code>..</code>,
+not <code>_</code>; ignoring a slice of a vector is done with <code>..</code>, not <code>.._</code>.</li>
+<li><code>rustc</code> supports the "win64" calling convention via <code>extern "win64"</code>.</li>
+<li><code>rustc</code> supports the "system" calling convention, which defaults to the
+preferred convention for the target platform, "stdcall" on 32-bit Windows,
+"C" elsewhere.</li>
+<li>The <code>type_overflow</code> lint (default: warn) checks literals for overflow.</li>
+<li>The <code>unsafe_block</code> lint (default: allow) checks for usage of <code>unsafe</code>.</li>
+<li>The <code>attribute_usage</code> lint (default: warn) warns about unknown
+attributes.</li>
+<li>The <code>unknown_features</code> lint (default: warn) warns about unknown
+feature gates.</li>
+<li>The <code>dead_code</code> lint (default: warn) checks for dead code.</li>
+<li>Rust libraries can be linked statically to one another</li>
+<li><code>#[link_args]</code> is behind the <code>link_args</code> feature gate.</li>
+<li>Native libraries are now linked with <code>#[link(name = "foo")]</code></li>
+<li>Native libraries can be statically linked to a rust crate
+(<code>#[link(name = "foo", kind = "static")]</code>).</li>
+<li>Native OS X frameworks are now officially supported
+(<code>#[link(name = "foo", kind = "framework")]</code>).</li>
+<li>The <code>#[thread_local]</code> attribute creates thread-local (not task-local)
+variables. Currently behind the <code>thread_local</code> feature gate.</li>
+<li>The <code>return</code> keyword may be used in closures.</li>
+<li>Types that can be copied via a memcpy implement the <code>Pod</code> kind.</li>
+<li>The <code>cfg</code> attribute can now be used on struct fields and enum variants.</li>
+</ul>
+</li>
+<li>
+<p>Libraries</p>
+<ul>
+<li>std: The <code>option</code> and <code>result</code> API's have been overhauled to make them
+simpler, more consistent, and more composable.</li>
+<li>std: The entire <code>std::io</code> module has been replaced with one that is
+more comprehensive and that properly interfaces with the underlying
+scheduler. File, TCP, UDP, Unix sockets, pipes, and timers are all
+implemented.</li>
+<li>std: <code>io::util</code> contains a number of useful implementations of
+<code>Reader</code> and <code>Writer</code>, including <code>NullReader</code>, <code>NullWriter</code>,
+<code>ZeroReader</code>, <code>TeeReader</code>.</li>
+<li>std: The reference counted pointer type <code>extra::rc</code> moved into std.</li>
+<li>std: The <code>Gc</code> type in the <code>gc</code> module will replace <code>@</code> (it is currently
+just a wrapper around it).</li>
+<li>std: The <code>Either</code> type has been removed.</li>
+<li>std: <code>fmt::Default</code> can be implemented for any type to provide default
+formatting to the <code>format!</code> macro, as in <code>format!("{}", myfoo)</code>.</li>
+<li>std: The <code>rand</code> API continues to be tweaked.</li>
+<li>std: The <code>rust_begin_unwind</code> function, useful for inserting breakpoints
+on failure in gdb, is now named <code>rust_fail</code>.</li>
+<li>std: The <code>each_key</code> and <code>each_value</code> methods on <code>HashMap</code> have been
+replaced by the <code>keys</code> and <code>values</code> iterators.</li>
+<li>std: Functions dealing with type size and alignment have moved from the
+<code>sys</code> module to the <code>mem</code> module.</li>
+<li>std: The <code>path</code> module was written and API changed.</li>
+<li>std: <code>str::from_utf8</code> has been changed to cast instead of allocate.</li>
+<li>std: <code>starts_with</code> and <code>ends_with</code> methods added to vectors via the
+<code>ImmutableEqVector</code> trait, which is in the prelude.</li>
+<li>std: Vectors can be indexed with the <code>get_opt</code> method, which returns <code>None</code>
+if the index is out of bounds.</li>
+<li>std: Task failure no longer propagates between tasks, as the model was
+complex, expensive, and incompatible with thread-based tasks.</li>
+<li>std: The <code>Any</code> type can be used for dynamic typing.</li>
+<li>std: <code>~Any</code> can be passed to the <code>fail!</code> macro and retrieved via
+<code>task::try</code>.</li>
+<li>std: Methods that produce iterators generally do not have an <code>_iter</code>
+suffix now.</li>
+<li>std: <code>cell::Cell</code> and <code>cell::RefCell</code> can be used to introduce mutability
+roots (mutable fields, etc.). Use instead of e.g. <code>@mut</code>.</li>
+<li>std: <code>util::ignore</code> renamed to <code>prelude::drop</code>.</li>
+<li>std: Slices have <code>sort</code> and <code>sort_by</code> methods via the <code>MutableVector</code>
+trait.</li>
+<li>std: <code>vec::raw</code> has seen a lot of cleanup and API changes.</li>
+<li>std: The standard library no longer includes any C++ code, and very
+minimal C, eliminating the dependency on libstdc++.</li>
+<li>std: Runtime scheduling and I/O functionality has been factored out into
+extensible interfaces and is now implemented by two different crates:
+libnative, for native threading and I/O; and libgreen, for green threading
+and I/O. This paves the way for using the standard library in more limited
+embedded environments.</li>
+<li>std: The <code>comm</code> module has been rewritten to be much faster, have a
+simpler, more consistent API, and to work for both native and green
+threading.</li>
+<li>std: All libuv dependencies have been moved into the rustuv crate.</li>
+<li>native: New implementations of runtime scheduling on top of OS threads.</li>
+<li>native: New native implementations of TCP, UDP, file I/O, process spawning,
+and other I/O.</li>
+<li>green: The green thread scheduler and message passing types are almost
+entirely lock-free.</li>
+<li>extra: The <code>flatpipes</code> module had bitrotted and was removed.</li>
+<li>extra: All crypto functions have been removed and Rust now has a policy of
+not reimplementing crypto in the standard library. In the future crypto
+will be provided by external crates with bindings to established libraries.</li>
+<li>extra: <code>c_vec</code> has been modernized.</li>
+<li>extra: The <code>sort</code> module has been removed. Use the <code>sort</code> method on
+mutable slices.</li>
+</ul>
+</li>
+<li>
+<p>Tooling</p>
+<ul>
+<li>The <code>rust</code> and <code>rusti</code> commands have been removed, due to lack of
+maintenance.</li>
+<li><code>rustdoc</code> was completely rewritten.</li>
+<li><code>rustdoc</code> can test code examples in documentation.</li>
+<li><code>rustpkg</code> can test packages with the argument, 'test'.</li>
+<li><code>rustpkg</code> supports arbitrary dependencies, including C libraries.</li>
+<li><code>rustc</code>'s support for generating debug info is improved again.</li>
+<li><code>rustc</code> has better error reporting for unbalanced delimiters.</li>
+<li><code>rustc</code>'s JIT support was removed due to bitrot.</li>
+<li>Executables and static libraries can be built with LTO (-Z lto)</li>
+<li><code>rustc</code> adds a <code>--dep-info</code> flag for communicating dependencies to
+build tools.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="0.10.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="0.8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="0.10.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="0.8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
