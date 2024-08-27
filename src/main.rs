@@ -4,12 +4,25 @@ use std::{
     fs::{self, File, OpenOptions},
     io::{BufRead, BufReader, Write},
     path::Path,
+    process::Command,
     str::FromStr,
 };
 
 fn main() {
-    let destination = Path::new("target/book/src");
-    fs::remove_dir_all(&destination).expect("remove dir should work");
+    let book_dir = Path::new("target/book");
+    let _ = fs::remove_dir_all(&book_dir);
+    fs::create_dir_all(&book_dir).expect("create dir should work");
+
+    let output = Command::new("mdbook")
+        .arg("init")
+        .arg(book_dir)
+        .output()
+        .expect("mdbook init should work");
+
+    assert!(output.status.success());
+
+    let destination = book_dir.join("src");
+    let _ = fs::remove_dir_all(&destination);
     fs::create_dir_all(&destination).expect("create dir should work");
 
     let reader = BufReader::new(File::open("RELEASES.md").expect("file read"));
@@ -54,11 +67,7 @@ fn main() {
     let summary: Vec<_> = releases
         .keys()
         .rev()
-        .map(|key| {
-            format!(
-                "- [{key}]({key}.md)"
-            )
-        })
+        .map(|key| format!("- [{key}]({key}.md)"))
         .collect();
 
     fs::write(destination.join("SUMMARY.md"), summary.join("\n"))
