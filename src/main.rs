@@ -67,7 +67,7 @@ fn main() {
     let summary: Vec<_> = releases
         .keys()
         .rev()
-        .map(|key| format!("- [{key}]({key}.md)"))
+        .map(|key| format!("[{key}]({key}.md)"))
         .collect();
 
     fs::write(destination.join("SUMMARY.md"), summary.join("\n"))
