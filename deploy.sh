@@ -18,4 +18,4 @@ git fetch upstream
 touch .
 git add -A .
 git commit -m "rebuild pages at ${rev}"
-git push upstream HEAD:gh-pages
+git push -f upstream HEAD:gh-pages
